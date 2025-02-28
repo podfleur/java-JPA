@@ -1,6 +1,7 @@
 package fr.epsi.entites;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "LIVRE")
@@ -20,6 +21,9 @@ public class Livre {
 
     @Column(name = "ANNEE_PARUTION", nullable = false)
     private int anneeParution;
+
+    @ManyToMany(mappedBy = "livres")
+    private List<Emprunt> emprunts;
 
     public Livre() {}
 
